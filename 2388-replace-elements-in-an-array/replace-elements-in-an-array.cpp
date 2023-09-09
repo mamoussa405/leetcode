@@ -1,7 +1,8 @@
 class Solution {
 public:
     vector<int> arrayChange(vector<int>& nums, vector<vector<int>>& operations) {
-        map<int, int> nums_index;
+        // map<int, int> nums_index;
+        vector<int> nums_index(1000000 + 1);
 
         for (int i = 0; i < nums.size(); ++i) 
             nums_index[nums[i]] = i;
