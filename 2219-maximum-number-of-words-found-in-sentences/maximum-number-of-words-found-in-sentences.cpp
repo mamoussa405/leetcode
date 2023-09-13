@@ -8,7 +8,7 @@ public:
             int words = 1;
             for (char& c : s)
                 words += c == ' ';
-                ans = max(ans, words);
+            ans = max(ans, words);
         }
         return ans;
     }
