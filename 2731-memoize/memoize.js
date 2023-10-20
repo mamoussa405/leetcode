@@ -1,31 +1,17 @@
-function cmpArrays(arr1, arr2) {
-    if (arr1.length !== arr2.length) return false;
-    for (let i = 0; i < arr1.length; ++i)
-        if (arr1[i] !== arr2[i]) return false;
-    return true;
-}
-
-function inputSeen(prevArgs, args)
-{
-    for (let i = 0; i < prevArgs.length; ++i)
-        if (cmpArrays(prevArgs[i].args, args)) return i;
-    return -1;
-}
-
 /**
  * @param {Function} fn
  * @return {Function}
  */
 function memoize(fn) {
     var save = null;
-    var prevArgs = []; 
+    var map = {}; 
     return function(...args) {
-        const idx = inputSeen(prevArgs, args);
-        if (idx !== -1)
-            return prevArgs[idx].save;
+        const s = args.toString();
+        if (s in map)
+            return map[s];
         save = fn(...args);
-        prevArgs.push({args, save});
-       return save;
+        map[s] = save;
+        return save;
     }
 }
 
