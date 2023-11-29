@@ -1,7 +1,7 @@
--- Write your PostgreSQL query statement below
+# Write your MySQL query statement below
 SELECT p.product_id,
 CASE
-WHEN MAX(units) IS NOT NULL THEN round(cast(SUM(units * price) AS decimal) / SUM(units), 2)
+WHEN units IS NOT NULL THEN round(SUM(units * price) / SUM(units), 2)
 ELSE 0 END AS average_price
 FROM Prices p
 LEFT JOIN UnitsSold u
