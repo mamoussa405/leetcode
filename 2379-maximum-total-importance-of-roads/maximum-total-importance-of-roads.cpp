@@ -1,7 +1,7 @@
 class Solution {
 public:
     long long maximumImportance(int n, vector<vector<int>>& roads) {
-        map<int, long long> f;
+        unordered_map<int, long long> f;
         priority_queue<long long> pq;
         long long ans = 0;
 
