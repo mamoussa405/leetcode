@@ -1,6 +1,6 @@
 class Solution {
 public:
-    double averageWaitingTime(vector<vector<int>>& customers) {
+     double averageWaitingTime(vector<vector<int>>& customers) {
        long long last_order_end;
        long long sum = 0;
 
@@ -17,7 +17,4 @@ public:
        cout << sum << endl;
        return (sum / (double)customers.size());
     }
-    // last_order_end = 19
-    // sum = 3 + 2 + 6 + 5 + 3 + 1
-    // sum = 20 / 6
 };
